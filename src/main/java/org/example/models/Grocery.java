@@ -50,7 +50,9 @@ public class Grocery {
             groceryList.add(item.toLowerCase());
          }
       }
+      Collections.sort(groceryList, String.CASE_INSENSITIVE_ORDER); // Listeyi sıralama
    }
+
 
    public static void removeItems(String input) {
       String[] items = input.split(",\\s*");
@@ -68,14 +70,15 @@ public class Grocery {
    }
 
    public static void printSorted() {
-      Collections.sort(groceryList);
+      ArrayList<String> sortedList = new ArrayList<>(groceryList);
+      sortedList.replaceAll(String::toLowerCase); // Küçük harfe dönüştürme
+      Collections.sort(sortedList);
       System.out.println("\nGüncel Pazar Listesi:");
-      for (String item : groceryList) {
+      for (String item : sortedList) {
          System.out.println("- " + item);
       }
    }
 
-   public static void main(String[] args) {
-      startGrocery();
-   }
+
+
 }

@@ -31,11 +31,13 @@ public class MobilePhone {
     // Metodlar
     public boolean addNewContact(Contact contact) {
         if (findContact(contact.getName()) >= 0) {
-            return false; // Zaten listede
+            System.out.println("Contact already exists.");
+            return false;
         }
         contacts.add(contact);
         return true;
     }
+
 
     public boolean updateContact(Contact oldContact, Contact newContact) {
         int foundPosition = findContact(oldContact);
@@ -45,11 +47,11 @@ public class MobilePhone {
         contacts.set(foundPosition, newContact);
         return true;
     }
-
     public boolean removeContact(Contact contact) {
         int foundPosition = findContact(contact);
         if (foundPosition < 0) {
-            return false; // Kişi bulunamadı
+            System.out.println("Contact not found.");
+            return false;
         }
         contacts.remove(foundPosition);
         return true;
