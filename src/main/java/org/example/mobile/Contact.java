@@ -1,16 +1,16 @@
 package org.example.mobile;
 
-public class Contact {
-    private String name;
-    private String phoneNumber;
+import java.util.Objects;
 
-    // Constructor
+public class Contact {
+private String name;
+private String phoneNumber;
+
     public Contact(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    // Getter methods
     public String getName() {
         return name;
     }
@@ -19,8 +19,15 @@ public class Contact {
         return phoneNumber;
     }
 
-    // Static method to create a Contact instance
-    public static Contact createContact(String name, String phoneNumber) {
-        return new Contact(name, phoneNumber);
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Contact contact = (Contact) o;
+        return Objects.equals(name, contact.name) && Objects.equals(phoneNumber, contact.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, phoneNumber);
     }
 }
