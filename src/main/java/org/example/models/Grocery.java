@@ -44,7 +44,7 @@ public class Grocery {
             System.out.println("Girilen item listede mevcut değil"+item);
          }else {
             groceryList.remove(item);
-         }
+         }sortItems();
    }
    }
    public static void addItems(String itemsToAdd) {
@@ -55,7 +55,7 @@ public class Grocery {
          System.out.println("Girilen item listede mevcut"+item);
       }else {
          groceryList.add(item);
-      }
+      }sortItems();
 
    }
 
